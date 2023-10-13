@@ -1,0 +1,81 @@
+[tool.poetry]
+name = "exp-safestats"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8.0,<3.9"
+scipy = "^1.10.1"
+numpy = "^1.24.2"
+ipykernel = "^6.22.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+rpy2 = "^3.5.10"
+mypy = "^1.2.0"
+flake8 = "^5.0.1"
+isort = "^5.12.0"
+flake8-pyproject = "^1.2.3"
+black = "^23.3.0"
+pre-commit = "^3.2.2"
+pep8-naming = "^0.13.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+exclude = ['.git', '__pycache__', '.venv']
+max_line_length = 99
+max_doc_length = 99
+max-complexity = 18
+
+[tool.black]
+line-length = 99
+include = '/project$|\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.eggs
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+skip = ["conftest.py", ".git", "__pycache__", ".venv"]
+
+[tool.mypy]
+files = "src/**/*.py"
+warn_unused_configs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_redundant_casts = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+# Put dependencie's name here if mypy fails to import stubs
+module = [
+    "scipy.*",
+]
+ignore_missing_imports = true
