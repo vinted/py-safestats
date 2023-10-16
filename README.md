@@ -7,7 +7,7 @@ Python version of the R [safestats](https://github.com/AlexanderLyNL/safestats) 
 ## Project installation
 You can configure your environment through `pyenv` and `poetry`:
 1. Make sure that you have installed both applications (e.g. through `brew`)
-2. Clone this repository: `git clone git@github.com:danielangus/py-safestats.git`
+2. Clone this repository: `git clone git@github.com:vinted/py-safestats.git`
 3. Install a valid Python 3.8.x version, e.g. `pyenv install 3.8.13`
 4. Install your environment:
 ```
